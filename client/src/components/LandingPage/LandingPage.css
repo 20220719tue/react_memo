@@ -1,0 +1,87 @@
+/* 리셋 */
+button,
+h1 {
+  border: none;
+  cursor: pointer;
+}
+/* 컨테이너 */
+#main {
+  margin: 0;
+  padding: 0;
+}
+
+/* 헤더 */
+#header {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 10vh;
+  background-color: #beadfa;
+}
+#header h1 {
+  position: absolute;
+  left: 200px;
+  top: 2px;
+}
+#header .memo_button {
+  overflow: hidden;
+  position: absolute;
+  right: 200px;
+  top: 25px;
+}
+#header .memo_button .new_memo {
+  width: 100px;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 25px;
+  font-size: medium;
+  font-weight: 700;
+  background-color: #fff3da;
+}
+#header .memo_button .new_folder {
+  width: 100px;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 25px;
+  font-size: medium;
+  font-weight: 700;
+  background-color: #fff3da;
+}
+#header .memo_button .new_memo:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+#header .memo_button .new_folder:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 메인 */
+#section {
+  overflow: hidden;
+  width: 100%;
+  height: 85vh;
+  background-color: #fff3da;
+  text-align: center;
+}
+#section .content1 {
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+}
+/* #section .Modal {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  top: 50px;
+  left: 500px;
+  background-color: #dfccfb;
+} */
+
+/* 푸터 */
+#footer {
+  width: 100%;
+  height: 5vh;
+  background-color: #ede4ff;
+}
+
+/* 색상 */
+/* https://colorhunt.co/palette/fff3dadfccfbd0bfffbeadfa */

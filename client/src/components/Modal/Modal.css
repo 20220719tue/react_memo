@@ -1,0 +1,235 @@
+#Modal {
+}
+
+/* 모달헤더 */
+#Modal #Modal_header {
+  width: 700px;
+  height: 80px;
+  background-color: #6528f7;
+  border-radius: 25px 25px 0 0;
+}
+#Modal #Modal_header .modal_tit {
+  position: absolute;
+  overflow: hidden;
+  left: 25px;
+  top: 15px;
+  font-size: 40px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #6528f7;
+}
+#Modal #Modal_header .modal_tit:hover {
+  outline: none;
+}
+#Modal #Modal_header .modal_tit::placeholder {
+  color: gainsboro;
+}
+#Modal #Modal_header .modal_btn {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  background-color: transparent;
+  color: #fff;
+}
+
+/* 모달 컨텐츠 */
+#Modal #Modal_con {
+  position: relative;
+  width: 700px;
+  height: 550px;
+  background-color: white;
+}
+#Modal #Modal_con .modal_txt {
+  position: absolute;
+  outline: none;
+  border: none;
+  top: 30px;
+  left: 38px;
+  width: 620px;
+  height: 480px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* 모달메뉴 */
+#Modal #Modal_nav {
+  position: relative;
+  width: 700px;
+  height: 50px;
+  background-color: #d7bbf5;
+  border-radius: 0 0 25px 25px;
+}
+#Modal #Modal_nav .faBold {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 40px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .faItalic {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 100px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .faUnderline {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 160px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .faStrikethrough {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 220px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .faAlignLeft {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 280px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .faAlignCenter {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 280px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .faAlignRight {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 280px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .Align_Box {
+  display: none;
+  position: absolute;
+  top: -60px;
+  left: 227px;
+  width: 150px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: pink;
+}
+#Modal #Modal_nav .Align_Box .Box_faAlignLeft {
+  display: inline-block;
+  cursor: pointer;
+  width: 35px;
+  height: 29px;
+  padding-top: 6px;
+  margin-top: 5px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+#Modal #Modal_nav .Align_Box .Box_faAlignCenter {
+  display: inline-block;
+  cursor: pointer;
+  width: 35px;
+  height: 29px;
+  padding-top: 6px;
+  margin-top: 5px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+#Modal #Modal_nav .Align_Box .Box_faAlignRight {
+  display: inline-block;
+  cursor: pointer;
+  width: 35px;
+  height: 29px;
+  padding-top: 5px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background-color: white;
+}
+#Modal #Modal_nav .faPaintbrush {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 340px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
+#Modal #Modal_nav .colorBrush {
+  display: none;
+  position: absolute;
+  top: -60px;
+  left: 187px;
+  width: 350px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: pink;
+}
+#Modal #Modal_nav .colorBrush div {
+  display: inline-block;
+  cursor: pointer;
+  width: 35px;
+  height: 29px;
+  padding-top: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 6px;
+  border-radius: 50%;
+}
+#Modal #Modal_nav .faPalette {
+  position: absolute;
+  cursor: pointer;
+  top: 3px;
+  left: 400px;
+  padding-top: 2px;
+  height: 43px;
+  width: 45px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: white;
+}
