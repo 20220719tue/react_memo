@@ -1,8 +1,18 @@
 #Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-
+#Modal #container {
+  margin-top: 100px;
+  margin-left: 500px;
+}
 /* 모달헤더 */
 #Modal #Modal_header {
+  position: relative;
   width: 700px;
   height: 80px;
   background-color: #6528f7;
@@ -222,6 +232,7 @@
   border-radius: 50%;
 }
 #Modal #Modal_nav .faPalette {
+  display: none;
   position: absolute;
   cursor: pointer;
   top: 3px;
@@ -232,4 +243,15 @@
   font-size: 30px;
   border-radius: 25px;
   background-color: white;
+}
+#Modal #Modal_nav .memo_save {
+  position: absolute;
+  right: 40px;
+  top: 7px;
+  width: 80px;
+  height: 35px;
+  border-radius: 25px;
+  font-size: medium;
+  font-weight: 700;
+  background-color: #fff3da;
 }

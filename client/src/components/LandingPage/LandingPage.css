@@ -39,6 +39,7 @@ h1 {
   background-color: #fff3da;
 }
 #header .memo_button .new_folder {
+  display: none;
   width: 100px;
   padding: 10px;
   margin-left: 10px;
@@ -67,14 +68,44 @@ h1 {
   position: relative;
   margin-top: 20px;
 }
-/* #section .Modal {
-  position: absolute;
-  width: 700px;
-  height: 700px;
-  top: 50px;
-  left: 500px;
-  background-color: #dfccfb;
-} */
+
+#section .content1 .content_list {
+}
+#section .content1 .content_list div.content {
+  display: inline-block;
+  overflow: hidden;
+  margin: 20px 20px 20px 40px;
+  cursor: pointer;
+}
+#section .content1 .content_list div.content .con_tit {
+  height: 40px;
+  text-align: left;
+  border-radius: 25px 25px 0 0;
+  background-color: #6528f7;
+}
+#section .content1 .content_list div.content .con_tit span {
+  margin-left: 20px;
+  line-height: 38px;
+  color: white;
+}
+#section .content1 .content_list div.content .con_txt {
+  overflow: hidden;
+  height: 280px;
+  width: 280px;
+  text-align: left;
+  border-radius: 0 0 25px 25px;
+  background-color: white;
+}
+#section .content1 .content_list div.content .con_txt div {
+  overflow: hidden;
+  margin: 20px;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 11;
+  -webkit-box-orient: vertical;
+}
 
 /* 푸터 */
 #footer {
