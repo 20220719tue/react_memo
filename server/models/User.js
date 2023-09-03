@@ -20,6 +20,9 @@ const userSchema = mongoose.Schema({
   Underline: {
     type: Boolean,
   },
+  Strikethrough: {
+    type: Boolean,
+  },
   AlignLeft: {
     type: Boolean,
   },

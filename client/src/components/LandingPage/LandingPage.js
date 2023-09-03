@@ -6,7 +6,7 @@ import axios from "axios";
 function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [List, setList] = useState([]);
-  const [Text, setText] = useState(true);
+  const [Data, setData] = useState([]);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -31,7 +31,17 @@ function LandingPage() {
             className="new_memo"
             onClick={() => {
               openModal();
-              setText(Text);
+              setData({
+                title: "",
+                contents: "",
+                bold: false,
+                italic: false,
+                underline: false,
+                alignleft: true,
+                aligncenter: false,
+                alignright: false,
+                color: "black",
+              });
             }}
           >
             새 메모
@@ -47,10 +57,31 @@ function LandingPage() {
             className="Modal"
             isOpen={isModalOpen}
             closeModal={closeModal}
+            Text={Text}
+            Data={Data}
           ></Modal>
           <div className="content_list">
             {List.map((data, key) => (
-              <div className="content" key={key}>
+              <div
+                className="content"
+                onClick={() => {
+                  openModal();
+                  setData({
+                    _id: data._id,
+                    title: data.title,
+                    contents: data.contents,
+                    date: data.date,
+                    bold: data.Bold,
+                    italic: data.Italic,
+                    underline: data.Underline,
+                    alignleft: data.AlignLeft,
+                    aligncenter: data.AlignCenter,
+                    alignright: data.AlignRight,
+                    color: data.color,
+                  });
+                }}
+                key={key}
+              >
                 <div className="con_tit" key={key}>
                   <span>{`${data.title}`}</span>
                 </div>

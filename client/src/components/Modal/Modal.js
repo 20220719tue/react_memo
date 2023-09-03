@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./Modal.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,12 +11,11 @@ import {
   faAlignLeft,
   faAlignCenter,
   faAlignRight,
-  faPaintBrush,
   faPalette,
   faPaintbrush,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Modal({ isOpen, closeModal }) {
+function Modal({ isOpen, closeModal, Data }) {
   const [Title, setTitle] = useState("");
   const [Contents, setContents] = useState("");
   const [Bold, setBold] = useState(false);
@@ -46,6 +45,7 @@ function Modal({ isOpen, closeModal }) {
       Bold: Bold,
       Italic: Italic,
       Underline: Underline,
+      Strikethrough: Strikethrough,
       AlignLeft: AlignLeft,
       AlignCenter: AlignCenter,
       AlignRight: AlignRight,
@@ -53,18 +53,40 @@ function Modal({ isOpen, closeModal }) {
     };
 
     if (body.title === "") {
-      alert("제목이 빈칸입니다.");
+      alert("제목이 없습니다");
+    } else if (body.contents === "") {
+      alert("내용이 없습니다");
     } else {
       axios
         .post("/api/users/save", body)
         .then(() => {
           console.log("성공");
+          window.location.replace("/");
         })
         .catch((err) => {
           console.log(err);
         });
     }
   };
+
+  //모달창의 isOpen===true일때만 useEffect() 실행
+  useEffect(() => {
+    console.log("마운트");
+    if (Data.title === undefined) {
+      setTitle("");
+    } else {
+      setTitle(Data.title);
+    }
+    setContents(Data.contents);
+    setBold(Data.bold);
+    setItalic(Data.italic);
+    setUnderline(Data.underline);
+    setAlignLeft(Data.alignleft);
+    setAlignCenter(Data.aligncenter);
+    setAlignRight(Data.alignright);
+    setColor(Data.color);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   return (
     <div id="Modal" style={{ display: isOpen ? "block" : "none" }}>
@@ -75,8 +97,14 @@ function Modal({ isOpen, closeModal }) {
             className="modal_tit"
             placeholder="제목을 입력하세요"
             onChange={onTitleHandler}
+            value={Title}
           ></input>
-          <button className="modal_btn" onClick={closeModal}>
+          <button
+            className="modal_btn"
+            onClick={() => {
+              closeModal();
+            }}
+          >
             <FontAwesomeIcon icon={faX} size="3x" />
           </button>
         </header>
@@ -86,6 +114,7 @@ function Modal({ isOpen, closeModal }) {
           <textarea
             className="modal_txt"
             onChange={onContentsHandler}
+            value={Contents}
             onClick={() => {
               setAlign(false);
               setcolorBrush(false);
