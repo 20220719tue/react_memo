@@ -19,6 +19,7 @@ mongoose
 //   res.send("Hello World!");
 // });
 
+// 메모 저장
 app.post("/api/users/save", (req, res) => {
   const user = new User(req.body);
 
@@ -28,6 +29,7 @@ app.post("/api/users/save", (req, res) => {
     .catch((err) => res.json({ success: false, err }));
 });
 
+// 메모 리스트 불러오기
 app.get("/api/users/list", (req, res) => {
   User.find()
     .then((data) => {
@@ -36,6 +38,35 @@ app.get("/api/users/list", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+// 메모 삭제
+app.delete("/api/users/delete", (req, res) => {
+  User.findOneAndRemove(req._id)
+    .then(() => res.status(200).json({ success: true }))
+    .catch((err) => res.json({ success: false, err }));
+});
+
+// 메모 수정
+app.put("/api/users/modify", (req, res) => {
+  console.log(req.body);
+  User.findOneAndUpdate(
+    { _id: req.body._id },
+    {
+      title: req.body.title,
+      contents: req.body.contents,
+      Bold: req.body.Bold,
+      Italic: req.body.Italic,
+      Underline: req.body.Underline,
+      Strikethrough: req.body.Strikethrough,
+      AlignLeft: req.body.AlignLeft,
+      AlignCenter: req.body.AlignCenter,
+      AlignRight: req.body.AlignRight,
+      color: req.body.color,
+    }
+  )
+    .then(() => res.status(200).json({ success: true }))
+    .catch((err) => res.json({ success: false, err }));
 });
 
 app.listen(port, () => {

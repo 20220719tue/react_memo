@@ -28,6 +28,7 @@ function Modal({ isOpen, closeModal, Data }) {
   const [AlignRight, setAlignRight] = useState(false);
   const [colorBrush, setcolorBrush] = useState(false);
   const [color, setColor] = useState("black");
+  const [NewBtn, setNewBtn] = useState(true);
 
   const onTitleHandler = (event) => {
     setTitle(event.currentTarget.value);
@@ -69,6 +70,70 @@ function Modal({ isOpen, closeModal, Data }) {
     }
   };
 
+  const onDeleteHandler = (event) => {
+    event.preventDefault();
+
+    let body = {
+      _id: Data._id,
+      title: Title,
+      contents: Contents,
+      Bold: Bold,
+      Italic: Italic,
+      Underline: Underline,
+      Strikethrough: Strikethrough,
+      AlignLeft: AlignLeft,
+      AlignCenter: AlignCenter,
+      AlignRight: AlignRight,
+      color: color,
+    };
+
+    if (window.confirm("메모를 삭제하시겠습니까?")) {
+      axios
+        .delete("/api/users/delete", body)
+        .then(() => {
+          console.log("성공");
+          window.location.replace("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  const onModifyHandler = (event) => {
+    event.preventDefault();
+
+    let body = {
+      _id: Data._id,
+      title: Title,
+      contents: Contents,
+      Bold: Bold,
+      Italic: Italic,
+      Underline: Underline,
+      Strikethrough: Strikethrough,
+      AlignLeft: AlignLeft,
+      AlignCenter: AlignCenter,
+      AlignRight: AlignRight,
+      color: color,
+    };
+
+    if (body.title === "") {
+      alert("제목이 없습니다");
+    } else if (body.contents === "") {
+      alert("내용이 없습니다.");
+    } else {
+      axios
+        .put("/api/users/modify", body)
+        .then(() => {
+          console.log("성공");
+          window.location.replace("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   //모달창의 isOpen===true일때만 useEffect() 실행
   useEffect(() => {
     console.log("마운트");
@@ -81,10 +146,14 @@ function Modal({ isOpen, closeModal, Data }) {
     setBold(Data.bold);
     setItalic(Data.italic);
     setUnderline(Data.underline);
+    setStrikethrough(Data.strikethrough);
     setAlignLeft(Data.alignleft);
     setAlignCenter(Data.aligncenter);
     setAlignRight(Data.alignright);
     setColor(Data.color);
+
+    if (Data.title === "") setNewBtn(true);
+    else setNewBtn(false);
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
@@ -359,8 +428,26 @@ function Modal({ isOpen, closeModal, Data }) {
             <div></div>
           </div>
 
-          <button className="memo_save" onClick={onSaveHandler}>
+          <button
+            className="memo_save"
+            onClick={onSaveHandler}
+            style={{ display: NewBtn === true ? "block" : "none" }}
+          >
             저장
+          </button>
+          <button
+            className="memo_delete"
+            onClick={onDeleteHandler}
+            style={{ display: NewBtn === false ? "block" : "none" }}
+          >
+            삭제
+          </button>
+          <button
+            className="memo_edit"
+            onClick={onModifyHandler}
+            style={{ display: NewBtn === false ? "block" : "none" }}
+          >
+            수정
           </button>
         </nav>
         {/* //nav */}

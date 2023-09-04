@@ -37,6 +37,7 @@ function LandingPage() {
                 bold: false,
                 italic: false,
                 underline: false,
+                strikethrough: false,
                 alignleft: true,
                 aligncenter: false,
                 alignright: false,
@@ -74,6 +75,7 @@ function LandingPage() {
                     bold: data.Bold,
                     italic: data.Italic,
                     underline: data.Underline,
+                    strikethrough: data.Strikethrough,
                     alignleft: data.AlignLeft,
                     aligncenter: data.AlignCenter,
                     alignright: data.AlignRight,
@@ -86,7 +88,29 @@ function LandingPage() {
                   <span>{`${data.title}`}</span>
                 </div>
                 <div className="con_txt" key={data._id}>
-                  <div>{`${data.contents}`}</div>
+                  <div
+                    style={{
+                      fontWeight: data.Bold === true ? "700" : "200",
+                      fontStyle: data.Italic === true ? "italic" : "normal",
+                      textDecoration:
+                        data.Underline === true && data.Strikethrough === true
+                          ? "underline line-through"
+                          : data.Underline === true &&
+                            data.Strikethrough === false
+                          ? "underline"
+                          : data.Underline === false &&
+                            data.Strikethrough === true
+                          ? "line-through"
+                          : "none",
+                      textAlign:
+                        data.AlignLeft === true
+                          ? "left"
+                          : data.AlignCenter === true
+                          ? "center"
+                          : "right",
+                      color: data.color,
+                    }}
+                  >{`${data.contents}`}</div>
                 </div>
               </div>
             ))}
@@ -94,7 +118,9 @@ function LandingPage() {
         </div>
       </section>
       {/* //섹션 */}
-      <footer id="footer"></footer>
+      <footer id="footer">
+        <p>Copyright 2023. 20220719tue. All rights reserved.</p>
+      </footer>
       {/* //푸터 */}
     </main>
   );
