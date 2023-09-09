@@ -47,7 +47,6 @@ function LandingPage() {
           >
             새 메모
           </button>
-          <button className="new_folder">새 폴더</button>
         </div>
         <div className="memo_modal"></div>
       </header>

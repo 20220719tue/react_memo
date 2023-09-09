@@ -421,12 +421,6 @@ function Modal({ isOpen, closeModal, Data }) {
           <div className="faPalette">
             <FontAwesomeIcon icon={faPalette} />
           </div>
-          <div className="colorPalette">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
 
           <button
             className="memo_save"
